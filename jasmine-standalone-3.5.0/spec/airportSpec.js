@@ -1,5 +1,6 @@
-describe("plane landing", function() {
+describe("airport", function() {
   var plane;
+  var airport;
 
   beforeEach(function() {
     plane = new Plane();
@@ -11,14 +12,15 @@ describe("plane landing", function() {
   });
 
   it ("allows a plane to take off and confirm it left", function(){
-    expect(airport.takeoff(plane)).toEqual('Left');
+    expect(plane.takeoff(airport)).toEqual('Left');
   });
 
   it ("prevents landing when airport is full", function(){
     var times = 20;
     for(var i=0; i < times; i++){
+    plane = new Plane()
     airport.land(plane);}
-    expect(function(){airport.land(plane); }).toThrow("Airport is full");
+    expect(function(){airport.land(plane);}).toThrow("Airport is full");
   });
 
 });
