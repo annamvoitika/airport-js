@@ -5,6 +5,8 @@ describe("airport", function() {
   beforeEach(function() {
     plane = new Plane();
     airport = new Airport();
+    weather = jasmine.createSpyObj("weather",["isStormy"])
+    weather.isStormy.and.returnValue(true);
   });
 
   it ("lands a plane at an airport", function() {
@@ -26,6 +28,14 @@ describe("airport", function() {
     plane = new Plane()
     airport.land(plane);}
     expect(function(){airport.land(plane);}).toThrow("Airport is full");
+  });
+
+  it ("can default airport capacity that can be overridden", function(){
+    expect(airport.newcapacity(100)).toEqual(100);
+  });
+
+  it ("prevents takeoff when weather is stormy", function(){
+    expect(function(){airport.takeoff(weather);}).toThrow("weather is stormy");
   });
 
 });

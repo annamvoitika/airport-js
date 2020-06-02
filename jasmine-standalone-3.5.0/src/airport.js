@@ -1,6 +1,7 @@
 class Airport {
-  constructor(){
+  constructor(capacity){
     this._hangar = []
+    var capacity = capacity;
   }
 
   planes() {
@@ -17,6 +18,20 @@ class Airport {
       return "Landed";}
     else {
       throw "Airport is full";
+    }
+  }
+
+  newcapacity(number){
+    let capacity = number
+    return capacity;
+  }
+
+  takeoff(weather){
+    if (weather.isStormy() == true) {
+      throw "weather is stormy";
+    }
+    else {
+      return "safe to fly";
     }
   }
 };
