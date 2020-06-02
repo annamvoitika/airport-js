@@ -38,4 +38,8 @@ describe("airport", function() {
     expect(function(){airport.takeoff(weather);}).toThrow("weather is stormy");
   });
 
+  it ("prevents landing when weather is stormy", function(){
+    expect(function(){plane.land(weather);}).toThrow("weather is stormy");
+  });
+
 });
